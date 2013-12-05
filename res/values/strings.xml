@@ -7,5 +7,7 @@
     <string name="tab1">Current Location</string>
     <string name="tab2">Search Locations</string>
     <string name="tab3">About</string>
+    <string name="d">d</string>
+    <string name="Submit">Submit</string>
 
 </resources>
