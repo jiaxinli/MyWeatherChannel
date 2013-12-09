@@ -8,8 +8,8 @@
     
     <ImageView  
         android:contentDescription="@string/d"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_width="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/sunshine"  />
@@ -27,7 +27,9 @@
         android:layout_height="300dp"  
         android:layout_width="fill_parent"  
         android:src="@drawable/logo_text"
-        android:layout_marginTop="10dp"  /> 
+        android:layout_marginTop="50dp" 
+        android:layout_marginLeft="10dp" 
+        android:layout_marginRight="10dp"  /> 
 
     
 </RelativeLayout>

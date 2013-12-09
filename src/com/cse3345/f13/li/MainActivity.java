@@ -14,8 +14,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		addListenerOnButton();
+		setContentView(R.layout.weather);
 	}
 
 	@Override
@@ -25,21 +24,6 @@ public class MainActivity extends Activity {
 		inflater.inflate(R.menu.main, menu);
 		System.out.println("Developer: Jiaxin Li");
 		return true;
-	}
-	public void addListenerOnButton() {
-		 
-		final Context context = this;
- 
-		Button button = (Button) findViewById(R.id.Submit);
-		button.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-			    Intent intent = new Intent(context, DisplayMessageActivity.class);
-                            startActivityForResult(intent,1);
-                                   		
-			}	
-		});
 	}
 
 }

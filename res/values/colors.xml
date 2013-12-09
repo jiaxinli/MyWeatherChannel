@@ -2,6 +2,6 @@
 <resources>
     <color name="black_overlay">#66FFFFFF</color>
     <color name="skyblue">#663299CC</color>
-    <color name="myblue">#660099cc</color>
+    <color name="myblue">#00C0C0</color>
     <color name="transparent">#80000000</color>
 </resources>
