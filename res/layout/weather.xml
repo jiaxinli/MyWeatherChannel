@@ -11,7 +11,7 @@
    	    android:layout_width="fill_parent"
         android:layout_height="fill_parent"
     	android:layout_weight="1"
-   	    android:background="@color/myblue" />
+   	    android:background="@drawable/bg_1" />
     	
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -40,13 +40,6 @@
               style="@style/tabs_bottom"
               android:drawableTop="@drawable/me"
             />
-
-        <RadioButton
-            android:id="@+id/radio3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="@string/tab3" 
-              style="@style/tabs_bottom"
-              android:drawableTop="@drawable/recent"/>
+        
     </RadioGroup>
 </LinearLayout>
