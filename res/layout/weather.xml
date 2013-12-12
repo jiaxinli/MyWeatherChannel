@@ -3,7 +3,7 @@
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/myblue"
+    android:background="@drawable/beach"
     android:orientation="vertical" >
     
     <LinearLayout
@@ -22,8 +22,9 @@
    	    	android:id="@android:id/tabcontent"
    	    	android:layout_width="fill_parent"
         	android:layout_height="fill_parent"
-    		android:layout_weight="1"
-   	    	android:background="@drawable/bg_1" />
+    		android:layout_weight="1" >  	    
+   	    	
+   	    </FrameLayout>
     	
     	<RadioGroup
         	android:id="@+id/radioGroup"
@@ -38,7 +39,6 @@
             	android:id="@+id/radio1"
             	android:layout_width="fill_parent"
             	android:layout_height="fill_parent"
-            	android:checked="true"
             	android:text="@string/tab1"
              	style="@style/tabs_bottom"
              	android:drawableTop="@drawable/home"/>

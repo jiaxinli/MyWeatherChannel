@@ -8,6 +8,8 @@
     <string name="tab2">Search Locations</string>
     <string name="d">d</string>
     <string name="Submit">Submit</string>
+    <string name="myLocation">My Location</string>
+    <string name="searchLocation">Search Location</string>
     <string name="title_activity_first_screen">FirstScreen</string>
     <string name="title_activity_my_location">My Location</string>
     <string name="title_activity_search_location">Search Locations</string>
