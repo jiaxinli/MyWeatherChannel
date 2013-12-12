@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/myblue"
+    android:background="@drawable/bg_1"
     android:orientation="vertical" >
-    
-    <LinearLayout
-    	android:orientation="vertical"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent">
-    	
-        <TabWidget
-    	    android:id="@android:id/tabs"
-    	    android:layout_width="fill_parent"
-    	    android:layout_height="wrap_content"
-    	    android:layout_weight="0.0"
-    	    android:visibility="gone" />
     	
    		<FrameLayout
    	    	android:id="@android:id/tabcontent"
    	    	android:layout_width="fill_parent"
         	android:layout_height="fill_parent"
     		android:layout_weight="1"
-   	    	android:background="@drawable/bg_1" />
+   	    	android:background="@drawable/bg_1" >
+   	    	
+   	    </FrameLayout>
     	
     	<RadioGroup
         	android:id="@+id/radioGroup"
@@ -53,5 +43,4 @@
         
     	</RadioGroup>
     
-    </LinearLayout>
-</TabHost>
+</LinearLayout>
