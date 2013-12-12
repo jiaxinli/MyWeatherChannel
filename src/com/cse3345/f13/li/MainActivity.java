@@ -7,7 +7,8 @@ import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.cse3345.f13.li.R;
+import com.example.final_project.R;
+
 
 import android.location.Location;
 import android.location.LocationListener;
@@ -44,7 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	// a location manager
 	private LocationManager lm = null;
 	// locations instances to GPS and NETWORk
-	private Location myLocationNetwork;
+	private Location myLocationGPS, myLocationNetwork;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +55,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		myLocationNetwork = lm
 				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+		myLocationGPS = lm
+				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		listener = new myLocationListener();
+		// Log.d("JG", "" + myLocationNetwork.getLatitude());
+		// Log.d("JG", "" + myLocationNetwork.getLongitude());
 		mImage = (ImageView) findViewById(R.id.imageButton1);
 		mWeather = (Button) findViewById(R.id.button1);
 		mForecast = (Button) findViewById(R.id.button2);
-		mTextView = (TextView) findViewById(R.id.textView2);
-		mLocation = (TextView) findViewById(R.id.textView3);
+		mTextView = (TextView) findViewById(R.id.temp);
+		mLocation = (TextView) findViewById(R.id.myLocation);
 		mWind = (TextView) findViewById(R.id.textView4);
 		mFeelsLike = (TextView) findViewById(R.id.textView5);
 		mWeather.setOnClickListener(this);
 		mForecast.setOnClickListener(this);
 		new JsonExtractor()
-				.execute("http://api.wunderground.com/api/d531d40c6117c8fd/conditions/q/"
+				.execute("http://api.wunderground.com/api/a8893cf69013d65a/conditions/q/"
 						+ myLocationNetwork.getLatitude()
 						+ ","
 						+ myLocationNetwork.getLongitude() + ".json");
@@ -79,7 +84,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	public void onClick(View v) {
 		if (v == mWeather) {
 			new JsonExtractor()
-					.execute("http://api.wunderground.com/api/d531d40c6117c8fd/conditions/q/"
+					.execute("http://api.wunderground.com/api/a8893cf69013d65a/conditions/q/"
 							+ myLocationNetwork.getLatitude()
 							+ ","
 							+ myLocationNetwork.getLongitude() + ".json");
@@ -141,7 +146,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		@Override
 		protected String doInBackground(String... params) {
 			weather = Json
-					.getJson("http://api.wunderground.com/api/d531d40c6117c8fd/conditions/q/"
+					.getJson("http://api.wunderground.com/api/a8893cf69013d65a/conditions/q/"
 							+ myLocationNetwork.getLatitude()
 							+ ","
 							+ myLocationNetwork.getLongitude() + ".json");
@@ -154,16 +159,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				displayLocationJson = currentObservationJson
 						.getJSONObject("display_location");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				// Log.d("JG", "" + weather2.getString("temp_f"));
 				temp = currentObservationJson.getString("temp_f");
-				wind = currentObservationJson.getString("wind_string");
+				wind = currentObservationJson.getString("temp_c");
 				icon = currentObservationJson.getString("icon_url");
 				feelsLike = currentObservationJson
-						.getString("feelslike_string");
+						.getString("temperature_string");
 				Location = displayLocationJson.getString("full");
 				city = displayLocationJson.getString("city");
 				state = displayLocationJson.getString("state");
@@ -176,7 +179,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 		@Override
 		protected void onPostExecute(String text) {
-			mTextView.setText(temp + " ¨H");
+			mTextView.setText(temp);
 			mWind.setText("Wind: \n" + wind);
 			mLocation.setText("Location:  " + Location);
 

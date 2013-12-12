@@ -4,8 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.cse3345.f13.li.R;
-import com.cse3345.f13.li.MainActivity.myLocationListener;
+import com.example.final_project.R;
 
 
 import android.os.AsyncTask;
@@ -24,8 +23,20 @@ public class Forecast extends Activity {
 	String state;
 	TextView day1;
 	TextView day1Forecast;
+	TextView day11;
+	TextView day11Forecast;
 	TextView day2;
 	TextView day2Forecast;
+	TextView day22;
+	TextView day22Forecast;
+	TextView day3;
+	TextView day3Forecast;
+	TextView day33;
+	TextView day33Forecast;
+	TextView day4;
+	TextView day4Forecast;
+	TextView day44;
+	TextView day44Forecast;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +44,26 @@ public class Forecast extends Activity {
 		setContentView(R.layout.activity_forecast);
 		day1 = (TextView) findViewById(R.id.textView2);
 		day1Forecast = (TextView) findViewById(R.id.textView3);
-		day2 = (TextView) findViewById(R.id.textView4);
-		day2Forecast = (TextView) findViewById(R.id.textView5);
+		day11 = (TextView) findViewById(R.id.textView4);
+		day11Forecast = (TextView) findViewById(R.id.textView5);
+		day2=(TextView) findViewById(R.id.textView6);
+		day2Forecast=(TextView) findViewById(R.id.textView7);
+		day22=(TextView) findViewById(R.id.textView8);
+		day22Forecast=(TextView) findViewById(R.id.textView9);
+		day3 = (TextView) findViewById(R.id.textView10);
+		day3Forecast = (TextView) findViewById(R.id.textView11);
+		day33 = (TextView) findViewById(R.id.textView12);
+		day33Forecast = (TextView) findViewById(R.id.textView13);
+		day4=(TextView) findViewById(R.id.textView14);
+		day4Forecast=(TextView) findViewById(R.id.textView15);
+		day44=(TextView) findViewById(R.id.textView16);
+		day44Forecast=(TextView) findViewById(R.id.textView17);
 		city = getIntent().getExtras().getString("city");
 		state = getIntent().getExtras().getString("state");
 		new JsonExtractor()
-				.execute("http://api.wunderground.com/api/d531d40c6117c8fd/conditions/q/.json");
+				.execute("http://api.wunderground.com/api/a8893cf69013d65a/conditions/q/.json");
 	}
-	
+
 	public void addListenerOnButton() {
 		 
 		final Context context = this;
@@ -67,7 +90,7 @@ public class Forecast extends Activity {
 			}	
 		});
 	}
-
+	
 	@SuppressWarnings("static-access")
 	private class JsonExtractor extends AsyncTask<String, Void, String> {
 		JSONObject weather;
@@ -77,8 +100,9 @@ public class Forecast extends Activity {
 		protected String doInBackground(String... params) {
 			Json a = new Json();
 			weather = a
-					.getJson("http://api.wunderground.com/api/d531d40c6117c8fd/forecast/q/"
+					.getJson("http://api.wunderground.com/api/a8893cf69013d65a/forecast/q/"
 							+ city + "," + state + ".json");
+			// Log.d("JG",""+ weather.toString());
 			JSONObject weather2 = null;
 			JSONObject weather3 = null;
 			try {
@@ -100,8 +124,26 @@ public class Forecast extends Activity {
 				day1.setText(forecast.getJSONObject(0).getString("title") + ":");
 				day1Forecast.setText(forecast.getJSONObject(0).getString(
 						"fcttext"));
-				day2.setText(forecast.getJSONObject(1).getString("title") + ":");
-				day2Forecast.setText(forecast.getJSONObject(1).getString(
+				day11.setText(forecast.getJSONObject(1).getString("title") + ":");
+				day11Forecast.setText(forecast.getJSONObject(1).getString(
+						"fcttext"));
+				day2.setText(forecast.getJSONObject(2).getString("title") + ":");
+				day2Forecast.setText(forecast.getJSONObject(2).getString(
+						"fcttext"));
+				day22.setText(forecast.getJSONObject(3).getString("title") + ":");
+				day22Forecast.setText(forecast.getJSONObject(3).getString(
+						"fcttext"));
+				day3.setText(forecast.getJSONObject(4).getString("title") + ":");
+				day3Forecast.setText(forecast.getJSONObject(4).getString(
+						"fcttext"));
+				day33.setText(forecast.getJSONObject(5).getString("title") + ":");
+				day33Forecast.setText(forecast.getJSONObject(5).getString(
+						"fcttext"));
+				day4.setText(forecast.getJSONObject(6).getString("title") + ":");
+				day4Forecast.setText(forecast.getJSONObject(6).getString(
+						"fcttext"));
+				day44.setText(forecast.getJSONObject(7).getString("title") + ":");
+				day44Forecast.setText(forecast.getJSONObject(7).getString(
 						"fcttext"));
 
 			} catch (JSONException e) {
