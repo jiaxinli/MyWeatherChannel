@@ -16,8 +16,8 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
-    <style name="tabs_bottom">
+   
+	<style name="tabs_bottom">
        <item name="android:textSize">10sp</item> 
        <item name="android:layout_weight">1</item> 
        <item name="android:button">@null</item> 
@@ -26,5 +26,4 @@
       <item name="android:gravity">center</item>
       <item name="android:background">@drawable/home_btn_bg</item>
     </style>
-
 </resources>
