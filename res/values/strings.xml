@@ -5,6 +5,7 @@
     <string name="tab1">My Weather</string>
     <string name="tab2">My Forecast</string>
     <string name="d">d</string>
+    <string name="find">Find My Location</string>
     <string name="myLocation">My Location</string>
     <string name="searchLocation">Search Location</string>
     <string name="title_activity_first_screen">FirstScreen</string>

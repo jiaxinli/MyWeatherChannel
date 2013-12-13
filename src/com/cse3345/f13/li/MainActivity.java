@@ -3,7 +3,7 @@ package com.cse3345.f13.li;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.final_project.R;
+import com.cse3345.f13.li.R;
 
 
 import android.location.Location;
