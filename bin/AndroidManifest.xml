@@ -29,8 +29,12 @@
         </activity>
         <activity
             android:name="com.cse3345.f13.li.Forecast"
-            android:label="@string/tab2" 
-            android:theme="@style/AppTheme">
+            android:label="@string/tab2"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="com.example.final_project.FirstP"
+            android:label="@string/title_activity_first_p" >
         </activity>
     </application>
 

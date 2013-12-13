@@ -1,9 +1,5 @@
 package com.cse3345.f13.li;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,8 +15,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -34,11 +28,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	Bitmap img = null;
 	public static int Forecast_Request;
 	TextView mTextView;
-	TextView mWind;
 	TextView mLocation;
-	TextView mFeelsLike;
+	TextView mLatitude;
+	TextView mLongitude;
+	TextView mElevation;
 	String city;
 	String state;
+	String Latitude;
+	String Longitude;
+	String Elevation;
 	String icon;
 	// the listener to listen to the locations
 	private LocationListener listener = null;
@@ -65,8 +63,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		mForecast = (Button) findViewById(R.id.button2);
 		mTextView = (TextView) findViewById(R.id.temp);
 		mLocation = (TextView) findViewById(R.id.myLocation);
-		mWind = (TextView) findViewById(R.id.textView4);
-		mFeelsLike = (TextView) findViewById(R.id.textView5);
+		mElevation = (TextView) findViewById(R.id.elevation);
+		mLatitude = (TextView) findViewById(R.id.latitude);
+		mLongitude = (TextView) findViewById(R.id.longitude);
 		mWeather.setOnClickListener(this);
 		mForecast.setOnClickListener(this);
 		new JsonExtractor()
@@ -74,7 +73,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 						+ myLocationNetwork.getLatitude()
 						+ ","
 						+ myLocationNetwork.getLongitude() + ".json");
-		new DownloadImageTask().execute(icon);
 		// Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
 		// Uri.parse("http://maps.google.com/maps"));
 		// startActivity(intent);
@@ -94,6 +92,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			Intent intent = new Intent(this, Forecast.class);
 			intent.putExtra("city", city);
 			intent.putExtra("state", state);
+			intent.putExtra("Latitude", Latitude);
+			intent.putExtra("Longitude",Longitude);
+			intent.putExtra("Elevation",Elevation);
 			startActivity(intent);
 		}
 	}
@@ -140,8 +141,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		JSONObject weather;
 		String Location = "";
 		String temp = "0";
-		String wind = "0";
-		String feelsLike = "0";
+		String Latitude = "0";
+		String Longitude = "0";
+		String Elevation = "0";
 
 		@Override
 		protected String doInBackground(String... params) {
@@ -163,13 +165,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			}
 			try {
 				temp = currentObservationJson.getString("temp_f");
-				wind = currentObservationJson.getString("temp_c");
 				icon = currentObservationJson.getString("icon_url");
-				feelsLike = currentObservationJson
-						.getString("temperature_string");
 				Location = displayLocationJson.getString("full");
 				city = displayLocationJson.getString("city");
 				state = displayLocationJson.getString("state");
+				Latitude = displayLocationJson.getString("latitude");
+				Longitude = displayLocationJson.getString("longitude");
+				Elevation = displayLocationJson.getString("elevation");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -180,50 +182,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		@Override
 		protected void onPostExecute(String text) {
 			mTextView.setText(temp);
-			mWind.setText("Wind: \n" + wind);
-			mLocation.setText("Location:  " + Location);
-
-			mFeelsLike.setText("Feels Like:  " + feelsLike);
+			mLocation.setText("My Location:  " + Location);
+			mLatitude.setText("My Latitude: " + Latitude);
+			mLongitude.setText("My Longitude:  " + Longitude);
+			mElevation.setText("My Elevation:  " + Elevation + " m");
 		}
 
 	}
 
-	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-		/**
-		 * The system calls this to perform work in a worker thread and delivers
-		 * it the parameters given to AsyncTask.execute()
-		 */
-		@Override
-		protected Bitmap doInBackground(String... urls) {
-			URL url;
-			try {
-				// A uniform resource locator aka the place where the data is
-				// located
-				url = new URL(icon);
-				// Opens an HTTPUrlConnection and downloads the input stream
-				// into a
-				// Bitmap
-				img = BitmapFactory.decodeStream(url.openStream());
-			} catch (MalformedURLException e) {
-				Log.e("JG", "URL is bad");
-				e.printStackTrace();
-			} catch (IOException e) {
-				Log.e("JG", "Failed to decode Bitmap");
-				e.printStackTrace();
-			}
-			return img;
-
-		}
-
-		/**
-		 * The system calls this to perform work in the UI thread and delivers
-		 * the result from doInBackground()
-		 */
-		@Override
-		protected void onPostExecute(Bitmap result) {
-			mImage.setImageBitmap(result);
-
-		}
-	}
 
 }

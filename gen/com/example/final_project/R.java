@@ -49,15 +49,19 @@ public final class R {
         public static final int wet=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f080018;
+        public static final int action_settings=0x7f08001c;
         public static final int button1=0x7f080010;
         public static final int button2=0x7f080011;
-        public static final int button3=0x7f080015;
-        public static final int button4=0x7f080016;
-        public static final int group1=0x7f08001a;
-        public static final int imageButton1=0x7f080017;
-        public static final int item1=0x7f080019;
-        public static final int myLocation=0x7f080012;
+        public static final int button3=0x7f080019;
+        public static final int button4=0x7f08001a;
+        public static final int elevation=0x7f080016;
+        public static final int group1=0x7f08001e;
+        public static final int imageButton1=0x7f08001b;
+        public static final int imageView1=0x7f080012;
+        public static final int item1=0x7f08001d;
+        public static final int latitude=0x7f080017;
+        public static final int longitude=0x7f080018;
+        public static final int myLocation=0x7f080015;
         public static final int temp=0x7f080013;
         public static final int textView10=0x7f080008;
         public static final int textView11=0x7f080009;
@@ -78,23 +82,27 @@ public final class R {
         public static final int unittemp=0x7f080014;
     }
     public static final class layout {
-        public static final int activity_forecast=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_first_p=0x7f030000;
+        public static final int activity_forecast=0x7f030001;
+        public static final int activity_main=0x7f030002;
     }
     public static final class menu {
-        public static final int forecast=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int first=0x7f070000;
+        public static final int forecast=0x7f070001;
+        public static final int main=0x7f070002;
     }
     public static final class string {
         public static final int action_settings=0x7f05000a;
         public static final int app_name=0x7f050000;
         public static final int d=0x7f050003;
         public static final int degree=0x7f05000b;
+        public static final int hello_world=0x7f05000d;
         public static final int myLocation=0x7f050004;
         public static final int name=0x7f050009;
         public static final int searchLocation=0x7f050005;
         public static final int tab1=0x7f050001;
         public static final int tab2=0x7f050002;
+        public static final int title_activity_first_p=0x7f05000c;
         public static final int title_activity_first_screen=0x7f050006;
         public static final int title_activity_my_location=0x7f050007;
         public static final int title_activity_search_location=0x7f050008;

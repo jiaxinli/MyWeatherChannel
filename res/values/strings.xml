@@ -13,5 +13,7 @@
     <string name="name">Developer: Jiaxin Li</string>
     <string name="action_settings">Settings</string>
     <string name="degree"> °F</string>
+    <string name="title_activity_first_p">FirstP</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
