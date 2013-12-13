@@ -53,8 +53,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		myLocationGPS = lm
 				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		listener = new myLocationListener();
-		// Log.d("JG", "" + myLocationNetwork.getLatitude());
-		// Log.d("JG", "" + myLocationNetwork.getLongitude());
 		mImage = (ImageView) findViewById(R.id.imageButton1);
 		mWeather = (Button) findViewById(R.id.button1);
 		mForecast = (Button) findViewById(R.id.button2);
@@ -70,9 +68,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 						+ myLocationNetwork.getLatitude()
 						+ ","
 						+ myLocationNetwork.getLongitude() + ".json");
-		// Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-		// Uri.parse("http://maps.google.com/maps"));
-		// startActivity(intent);
 	}
 
 	
@@ -162,11 +157,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	public class myLocationListener implements LocationListener {
 		@Override
 		public void onLocationChanged(Location location) {
-			// "location" is the RECEIVED locations and its here that you should
-			// process it
-
-			// check if the incoming position has been received from GPS or
-			// network
 			if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 				lm.removeUpdates(this);
 			} else {
