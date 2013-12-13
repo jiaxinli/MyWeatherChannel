@@ -12,6 +12,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// get help from: http://androiddev.orkitra.com/?p=39915, I totally understand how to pull data from website, and it becomes my own knowledge already.
 public class Json {
 	public static JSONObject getJson(String url) {
 

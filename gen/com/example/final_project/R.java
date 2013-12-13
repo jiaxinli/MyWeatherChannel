@@ -49,16 +49,15 @@ public final class R {
         public static final int wet=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001c;
         public static final int button1=0x7f080000;
         public static final int button2=0x7f080011;
         public static final int button3=0x7f080019;
         public static final int button4=0x7f08001a;
         public static final int elevation=0x7f080016;
-        public static final int group1=0x7f08001e;
+        public static final int group1=0x7f08001d;
         public static final int imageButton1=0x7f08001b;
         public static final int imageView1=0x7f080012;
-        public static final int item1=0x7f08001d;
+        public static final int item1=0x7f08001c;
         public static final int latitude=0x7f080017;
         public static final int longitude=0x7f080018;
         public static final int myLocation=0x7f080015;
@@ -100,6 +99,7 @@ public final class R {
         public static final int hello_world=0x7f05000e;
         public static final int myLocation=0x7f050005;
         public static final int name=0x7f05000a;
+        public static final int safe=0x7f05000f;
         public static final int searchLocation=0x7f050006;
         public static final int tab1=0x7f050001;
         public static final int tab2=0x7f050002;

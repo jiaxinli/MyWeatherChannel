@@ -2,24 +2,21 @@ package com.cse3345.f13.li;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.cse3345.f13.li.R;
-
-
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
+import android.widget.ImageView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.os.Bundle;
+import android.app.Activity;
+import android.location.Location;
+import android.location.LocationListener;
+import android.graphics.Bitmap;
 import android.widget.TextView;
+import android.location.LocationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 	private Button mWeather;
@@ -27,17 +24,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	ImageView mImage;
 	Bitmap img = null;
 	public static int Forecast_Request;
-	TextView mTextView;
-	TextView mLocation;
-	TextView mLatitude;
-	TextView mLongitude;
-	TextView mElevation;
 	String city;
 	String state;
 	String Latitude;
 	String Longitude;
 	String Elevation;
 	String icon;
+	TextView mTextView;
+	TextView mLocation;
+	TextView mLatitude;
+	TextView mLongitude;
+	TextView mElevation;
 	// the listener to listen to the locations
 	private LocationListener listener = null;
 	// a location manager
@@ -78,6 +75,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		// startActivity(intent);
 	}
 
+	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+
+		return true;
+	}
+	
 	@Override
 	public void onClick(View v) {
 		if (v == mWeather) {
@@ -96,44 +103,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			intent.putExtra("Longitude",Longitude);
 			intent.putExtra("Elevation",Elevation);
 			startActivity(intent);
-		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-
-		return true;
-	}
-
-	public class myLocationListener implements LocationListener {
-		@Override
-		public void onLocationChanged(Location location) {
-			// "location" is the RECEIVED locations and its here that you should
-			// process it
-
-			// check if the incoming position has been received from GPS or
-			// network
-			if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-				lm.removeUpdates(this);
-			} else {
-				lm.removeUpdates(listener);
-			}
-		}
-
-		@Override
-		public void onProviderDisabled(String provider) {
-			lm.removeUpdates(this);
-			lm.removeUpdates(listener);
-		}
-
-		@Override
-		public void onProviderEnabled(String provider) {
-		}
-
-		@Override
-		public void onStatusChanged(String provider, int status, Bundle extras) {
 		}
 	}
 
@@ -188,6 +157,36 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			mElevation.setText("My Elevation:  " + Elevation + " m");
 		}
 
+	}
+
+	public class myLocationListener implements LocationListener {
+		@Override
+		public void onLocationChanged(Location location) {
+			// "location" is the RECEIVED locations and its here that you should
+			// process it
+
+			// check if the incoming position has been received from GPS or
+			// network
+			if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+				lm.removeUpdates(this);
+			} else {
+				lm.removeUpdates(listener);
+			}
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+			lm.removeUpdates(this);
+			lm.removeUpdates(listener);
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+		}
 	}
 
 

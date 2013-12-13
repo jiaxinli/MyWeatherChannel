@@ -62,6 +62,7 @@ public class Forecast extends Activity {
 		state = getIntent().getExtras().getString("state");
 		new JsonExtractor()
 				.execute("http://api.wunderground.com/api/a8893cf69013d65a/conditions/q/.json");
+		addListenerOnButton();
 	}
 
 	public void addListenerOnButton() {
@@ -74,17 +75,6 @@ public class Forecast extends Activity {
 			@Override
 			public void onClick(View arg0) {
 			    Intent intent = new Intent(context, MainActivity.class);
-                            startActivityForResult(intent,1);
-                                   		
-			}	
-		});
-		
-		Button button2 = (Button) findViewById(R.id.button2);
-		button2.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-			    Intent intent = new Intent(context, Forecast.class);
                             startActivityForResult(intent,1);
                                    		
 			}	

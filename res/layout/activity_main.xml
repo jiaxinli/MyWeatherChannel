@@ -9,6 +9,7 @@
     <ImageView
         android:contentDescription="@string/d"
         android:id="@+id/imageView1"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/sunshine" />
@@ -37,7 +38,7 @@
     	style="?android:attr/textAppearanceMedium"
     	android:layout_height="wrap_content"
         android:text="@string/degree"
-        android:textSize="20sp">        
+        android:textSize="30sp">        
 	</TextView>
 	
     </LinearLayout> 
